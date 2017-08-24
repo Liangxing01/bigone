@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 
 Vue.use(Router)
 
@@ -8,8 +7,18 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'login',
+      component: resolve => require(['../components/Login'], resolve)
+    },
+    {
+    	path: '/index',
+    	component: resolve => require(['../components/index'], resolve),
+    	children:[
+    		{
+    			path: 'Hello',
+    			component: resolve => require(['../components/Hello'], resolve)
+    		}
+    	]
     }
   ]
 })
