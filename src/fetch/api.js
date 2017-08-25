@@ -8,9 +8,6 @@ axios.defaults.baseURL = 'http://localhost:8080/';
 
 //添加请求拦截器
 axios.interceptors.request.use((config) => {
-    if(config.method  === 'post'){
-        config.data = qs.stringify(config.data);
-    }
     //在发送请求之前做某事
     return config;
 },(error) =>{
@@ -20,9 +17,6 @@ axios.interceptors.request.use((config) => {
 
 //返回状态判断
 axios.interceptors.response.use((res) =>{
-    if(!res.data.success){
-        return Promise.reject(res);
-    }
     //对响应数据做些事
     return res;
 }, (error) => {
