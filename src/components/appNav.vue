@@ -1,29 +1,12 @@
 <template>
   <nav class="g-nav-box">
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-      <el-submenu index="1">
-        <template slot="title"><i class="el-icon-message"></i>导航一</template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-        <el-submenu index="1-4">
-          <template slot="title">二级导航</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-          <el-menu-item index="1-4-2">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-submenu index="2">
-        <template slot="title"><i class="el-icon-message"></i>导航一</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">二级导航</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
+      <el-menu-item index="1"><i><img src="../assets/img/nav-img1.png"/></i>概览</el-menu-item>
+      <el-menu-item index="2"><i><img src="../assets/img/nav-img2.png"/></i>我的网关</el-menu-item>
+      <el-menu-item index="3"><i><img src="../assets/img/nav-img3.png"/></i>我的应用</el-menu-item>
+      <el-menu-item index="4"><i><img src="../assets/img/nav-img4.png"/></i>地图展示</el-menu-item>
+      <el-menu-item index="5"><i><img src="../assets/img/nav-img5.png"/></i>数据画像</el-menu-item>
+      <el-menu-item index="6"><i><img src="../assets/img/nav-img6.png"/></i>个人中心</el-menu-item>
     </el-menu>
   </nav>
 </template>
@@ -42,18 +25,22 @@
 </script>
 
 <style type="text/css" scoped="scoped">
-  .g-nav-box{
-    width: 240px;
-    height: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    overflow-y: auto;
-    background: #20A0FF;
-    z-index: 10;
-  }
-  .g-nav-box>ul{
-    margin-top: 60px;
-    margin-bottom: 40px;
-  }
+	  .g-nav-box{
+	    	width: 240px;
+	    	height: 100%;
+	    	position: fixed;
+	    	left: 0;
+	    	top: 0;
+	    	overflow-y: auto;
+	    	background: #2c3749;
+	    	z-index: 10;
+	  }
+	  .g-nav-box>ul{
+	    	margin-top: 66px;
+	    	margin-bottom: 40px;
+	  }
+	  .el-menu{background: #2c3749;}
+	  .el-menu-item:hover{background: #4db5ee;}
+	  .el-menu-item, .el-submenu__title{color: #fff;}
+  	.g-nav-box i img{vertical-align: middle; margin-left: 10px; float: left; margin-top: 15px;}
 </style>

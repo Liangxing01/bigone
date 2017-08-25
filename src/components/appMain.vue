@@ -16,10 +16,9 @@
 	.g-main-box{
 		margin-left: 240px;
 		margin-bottom: 40px;
-		width: 100%;
 		height: 100%;
-		padding: 10px 20px;
-		background: red;
+		padding: 20px;
+		background: #ecefef;
 		overflow-y: auto;
 	}
 	.g-main-content{
