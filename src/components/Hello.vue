@@ -65,19 +65,19 @@
 		  <el-col :span="8"><div class="grid-content bg-purple">
 		  	<div class="index-echarts">
     			<h3>应用类型</h3>
-    			<div id="alarmCricle" style="width: 100%; height: 400px;"></div>
+    			<div id="alarmCricle" style="width: 100%; height: 450px;"></div>
     		</div>
 		  </div></el-col>
 		  <el-col :span="8"><div class="grid-content bg-purple">
     		<div class="index-echarts">
     			<h3>实时流量</h3>
-    			<div id="AlarmLog" class="AlarmLog" style="width: 100%; height: 400px;"></div>
+    			<div id="AlarmLog" class="AlarmLog" style="width: 100%; height: 450px;"></div>
     		</div>		  	
 		  </div></el-col>
 		  <el-col :span="8"><div class="grid-content bg-purple">
     		<div class="index-echarts">
     			<h3>设备新增趋势图</h3>
-    			<div id="alarmType" style="width: 100%; height: 400px;"></div>
+    			<div id="alarmType" style="width: 100%; height: 450px;"></div>
     		</div>		  	
 		  </div></el-col>
 		</el-row>
@@ -88,12 +88,12 @@
 import axios from '@/fetch/api.js'
 
 export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
+//name: 'hello',
+//data () {
+//  return {
+//    msg: 'Welcome to Your Vue.js App'
+//  }
+//},
   methods:{
     getJson: function(){
       debugger;
@@ -105,24 +105,24 @@ export default {
     }
   },
   
-	props: {
-    className: {
-      type: String,
-      default: 'index-echarts'
-    },
-    id: {
-      type: String,
-      default: 'AlarmLog'
-    },
-    width: {
-      type: String,
-      default: '100%'
-    },
-    height: {
-      type: String,
-      default: '500px'
-    }
-},
+//	props: {
+//  className: {
+//    type: String,
+//    default: 'index-echarts'
+//  },
+//  id: {
+//    type: String,
+//    default: 'alarmType'
+//  },
+//  width: {
+//    type: String,
+//    default: '100%'
+//  },
+//  height: {
+//    type: String,
+//    default: '500px'
+//  }
+//},
 data() {
     return {
       chart: null
@@ -140,7 +140,7 @@ beforeDestroy() {
 },
 methods: {
     initChart: function() {
-      let echart1 = this.$echarts.init(document.getElementById('alarmCricle'));
+      let echart1 = this.$echarts.init(document.getElementById('alarmType'));
       // 把配置和数据放这里
       echart1.setOption({
         color: ['#3398DB'],
@@ -172,6 +172,112 @@ methods: {
           barWidth: '60%',
           data: [10, 52, 200, 334, 390, 330, 220]
         }]
+      })
+      
+      let echart2 = this.$echarts.init(document.getElementById('AlarmLog'));
+      // 把配置和数据放这里
+      echart2.setOption({
+		    tooltip : {
+		        trigger: 'axis'
+		    },
+		    legend: {
+		        data:['上行速率','下行速率']
+		    },
+		    calculable : true,
+		    xAxis : [
+		        {
+		            type : 'category',
+		            boundaryGap : false,
+		            data : ['周一','周二','周三','周四','周五','周六','周日']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value',
+		            axisLabel : {
+		                formatter: '{value} °C'
+		            }
+		        }
+		    ],
+		    series : [
+		        {
+		            name:'上行速率',
+		            type:'line',
+		            data:[11, 11, 15, 13, 12, 13, 10],
+		            markPoint : {
+		                data : [
+		                    {type : 'max', name: '最大值'},
+		                    {type : 'min', name: '最小值'}
+		                ]
+		            },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name: '平均值'}
+		                ]
+		            }
+		        },
+		        {
+		            name:'下行速率',
+		            type:'line',
+		            data:[1, -2, 2, 5, 3, 2, 0],
+		            markPoint : {
+		                data : [
+		                    {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+		                ]
+		            },
+		            markLine : {
+		                data : [
+		                    {type : 'average', name : '平均值'}
+		                ]
+		            }
+		        }
+		    ]
+      })
+      let echart3 = this.$echarts.init(document.getElementById('alarmCricle'));
+      // 把配置和数据放这里
+      echart3.setOption({
+			 		tooltip: {
+			        trigger: 'item',
+			        formatter: "{a} <br/>{b}: {c} ({d}%)"
+			    },
+			    legend: {
+			        orient: 'vertical',
+			        x: 'left',
+			        data:['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+			    },
+			    series: [
+			        {
+			            name:'访问来源',
+			            type:'pie',
+			            radius: ['50%', '70%'],
+			            avoidLabelOverlap: false,
+			            label: {
+			                normal: {
+			                    show: false,
+			                    position: 'center'
+			                },
+			                emphasis: {
+			                    show: true,
+			                    textStyle: {
+			                        fontSize: '30',
+			                        fontWeight: 'bold'
+			                    }
+			                }
+			            },
+			            labelLine: {
+			                normal: {
+			                    show: false
+			                }
+			            },
+			            data:[
+			                {value:335, name:'直接访问'},
+			                {value:310, name:'邮件营销'},
+			                {value:234, name:'联盟广告'},
+			                {value:135, name:'视频广告'},
+			                {value:1548, name:'搜索引擎'}
+			            ]
+			        }
+			    ]
       })
     }
 }
@@ -288,8 +394,8 @@ a {
 .index-echarts h3{
 	line-height: 40px;
 	height: 40px;
-	margin-bottom: 20px;
-	margin-left: 20px;
+	margin:10px 0 40px 20px;
 	color: #575757;
+	text-align: left;
 }
 </style>

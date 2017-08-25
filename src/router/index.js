@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-	mode: 'history',
+//	mode: 'history',
   routes: [
     {
       path: '/',
@@ -12,12 +12,16 @@ export default new Router({
       component: resolve => require(['../components/Login'], resolve)
     },
     {
-    	path: '/index',
+    	path: '/user',
     	component: resolve => require(['../components/index'], resolve),
     	children:[
     		{
-    			path: 'Hello',
+    			path: 'index',
     			component: resolve => require(['../components/Hello'], resolve)
+    		},
+    		{
+    			path: 'gateway',
+    			component: resolve => require(['../components/gateway'], resolve)
     		}
     	]
     }

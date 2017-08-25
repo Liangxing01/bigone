@@ -45,7 +45,7 @@ import axios from '@/fetch/api';
 //					}).catch(function(err){
 //						console.log(err);
 //					})
-				location.href='/index/hello'
+				location.href='#/user/index'
 			}
 		}
 	}

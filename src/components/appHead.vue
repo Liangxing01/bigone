@@ -4,19 +4,29 @@
 			<img src="../assets/img/logo.png" />
 			<a href="">6M物联网应用平台</a>
 		</div>
-		<div class="g-head-info">
-			<img src="../assets/img/bell.png" />
+		<div class="g-head-admin">
 			<ul>
 				<li>
-					4
+					<span>某某某</span>
+					<img src="../assets/img/arrow.png" />
 					<ul>
-						<li><a href="">你有一条消息</a></li>
+						<li><a href="">个人中心</a></li>
+						<li><a href="">注销</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="g-head-info">
+			<ul>
+				<li>
+					<img src="../assets/img/bell.png" />4
+					<ul>
+						<li><a href="">你有一条消息你有一条消息</a></li>
 						<li><a href="">你有一条消息</a></li>
 					</ul>
 				</li>
 			</ul>
 		</div>
-		
 	</header>
 </template>
 
@@ -58,11 +68,50 @@
 	}
 	.g-head-logo a:hover{color: #fff; text-decoration: none;}
 	
-	.g-head-info{display: -webkit-inline-box;}	
-	.g-head-info img{vertical-align: middle;}
-	.g-head-info ul li{list-style: none;}
-	.g-head-info ul li ul { position:absolute; display:none; background: #fff;}
-	.g-head-info ul li ul li { float:none; line-height: 30px;}
-	.g-head-info ul li ul li a { border-right:none; border-top:1px dotted #ccc; background:#f5f5f5;}
+	.g-head-info{display: block; float: right; width: 120px; text-align: center;}	
+	.g-head-info ul li img{vertical-align: middle;}
+	.g-head-info ul li{list-style: none; color: #fff;}
+	.g-head-info ul li ul {  display:none; background: #fff;}
+	.g-head-info ul li ul li { 
+		float:none; 
+		line-height: 24px;
+		border-bottom:1px solid #ccc; 
+		white-space: nowrap; 
+		margin: 0 10px;
+		box-sizing: border-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.g-head-info ul li ul li a { 
+		border-right:none; 
+		background:#f5f5f5; 
+		display: block;
+		text-decoration: none;
+		color: #212121;
+	}
+	.g-head-info ul li ul li a:hover{background: #4db5ee; color: #fff;}
 	.g-head-info ul li:hover ul{ display:block; }
+	
+	.g-head-admin{display: block; float: right; width: 120px; text-align: center;}	
+	.g-head-admin ul li img{vertical-align: middle; float: right; margin-right: 10px; margin-top: 30px;}
+	.g-head-admin ul li{list-style: none; color: #fff;}
+	.g-head-admin ul li ul {  display:none; background: #fff;}
+	.g-head-admin ul li ul li { 
+		float:none; 
+		line-height: 30px;
+		border-bottom:1px solid #ccc; 
+		white-space: nowrap; 
+		margin: 0 10px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.g-head-admin ul li ul li a { 
+		border-right:none; 
+		background:#f5f5f5; 
+		display: block;
+		text-decoration: none;
+		color: #212121;
+	}
+	.g-head-admin ul li ul li a:hover{background: #4db5ee; color: #fff;}
+	.g-head-admin ul li:hover ul{ display:block; }
 </style>
