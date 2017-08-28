@@ -13,6 +13,16 @@ export default new Router({
     {
     	path: '/index',
     	component: resolve => require(['../components/index'], resolve),
+      beforeEnter: (to, from, next) =>{
+        var token = window.localStorage.getItem('token');
+        var uid = window.localStorage.getItem('uid');
+        var kind = window.localStorage.getItem('kind');
+        if(token && uid && kind){
+          next();
+        }else{
+          next('/');
+        }
+      },
     	children:[
     		{
     			path: 'Hello',

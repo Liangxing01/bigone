@@ -24,17 +24,7 @@ import axios from '@/fetch/api';
 				debugger;
 				var _this = this;
 					axios.get('/static/data/user.json').then(function(response){
-						var hasUser = '';
-						response.data.map(function(data){
-							if(data.username == _this.username && data.password == _this.password){
-								hasUser = 'login';
-							}
-						})
-						if(hasUser == 'login'){
-							alert('登陆成功！')
-						}else{
-							alert('登陆失败！')
-						}
+						
 					}).catch(function(err){
 						console.log(err);
 					})	
