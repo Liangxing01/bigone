@@ -88,28 +88,10 @@
 	import axios from '@/fetch/api.js'
 	
 	export default {
-	    data() {
+	  data() {
 	      return {
-	        activeName: 'first'
-	      };
-	    },
-	    
-		methods: {
-	      handleClick(tab, event) {
-	        console.log(tab, event);
-	      },
-	
-	      tableRowClassName(row, index) {
-	        if (index === 1) {
-	          return 'info-row';
-	        } else if (index === 3) {
-	          return 'positive-row';
-	        }
-	        return '';
-	      }
-	    },
-	    data() {
-	      return {
+	        activeName: 'first',
+	        input2: '',
 	        tableData2: [{
 	          date: '2017-08-29',
 	          name: '哈哈哈哈哈',
@@ -143,61 +125,61 @@
 	          car:'无车',
 	          address: '上海市普陀区金沙江路 1518 弄',
 	        }]
-	      }
-	    },
-		mounted() {
-		    this.initChart();
-		},
-		beforeDestroy() {
-		    if (!this.chart) {
-		      return
-		    }
-		    this.chart.dispose();
-		    this.chart = null;
-		},
-methods: {
-    initChart: function() {
-       let echart1 = this.$echarts.init(document.getElementById('flow'));
-       // 把配置和数据放这里
-       echart1.setOption({ 
-	    xAxis : [
-	        {
-	            type : 'time',
-	            splitNumber:10
-	        }
-	    ],
-	    yAxis : [
-	        {
-	            type : 'value'
-	        }
-	    ],
-	    series : [
-	        {
-	            name: '流量',
-	            type: 'line',
-	            showAllSymbol: true,
-	
-	            data: (function () {
-	                var d = [];
-	                var len = 0;
-	                var now = new Date();
-	                var value;
-	                while (len++ < 200) {
-	                    d.push([
-	                        new Date(2016, 9, 1, 0, len * 10000),
-	                        (Math.random()*30).toFixed(2) - 0,
-	                        (Math.random()*100).toFixed(2) - 0
-	                    ]);
-	                }
-	                return d;
-	            })()
-	        }
-	    ]
-	})
-}
-},
-methods: {
-      open() {
+	      };
+	  },
+		methods: {
+			handleIconClick: function(){},
+      handleClick(tab, event) {
+        console.log(tab, event);
+      },
+      tableRowClassName(row, index) {
+        if (index === 1) {
+          return 'info-row';
+        } else if (index === 3) {
+          return 'positive-row';
+        }
+        return '';
+      },
+      initChart: function() {
+	       let echart1 = this.$echarts.init(document.getElementById('flow'));
+	       // 把配置和数据放这里
+	       echart1.setOption({ 
+				    xAxis : [
+				        {
+				            type : 'time',
+				            splitNumber:10
+				        }
+				    ],
+				    yAxis : [
+				        {
+				            type : 'value'
+				        }
+				    ],
+				    series : [
+				        {
+				            name: '流量',
+				            type: 'line',
+				            showAllSymbol: true,
+				
+				            data: (function () {
+				                var d = [];
+				                var len = 0;
+				                var now = new Date();
+				                var value;
+				                while (len++ < 200) {
+				                    d.push([
+				                        new Date(2016, 9, 1, 0, len * 10000),
+				                        (Math.random()*30).toFixed(2) - 0,
+				                        (Math.random()*100).toFixed(2) - 0
+				                    ]);
+				                }
+				                return d;
+				            })()
+				        }
+				    ]
+					})
+			},
+			open: function() {
         this.$alert('这是一段内容', '标题名称', {
           confirmButtonText: '确定',
           callback: action => {
@@ -208,7 +190,17 @@ methods: {
           }
         });
       }
-    }
+    },
+		mounted() {
+		    this.initChart();
+		},
+		beforeDestroy() {
+		    if (!this.chart) {
+		      return
+		    }
+		    this.chart.dispose();
+		    this.chart = null;
+		}
 }
 </script>
 
