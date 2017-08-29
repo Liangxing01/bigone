@@ -343,6 +343,7 @@ a {
 	font-size: 24px;
 	line-height: 54px;
 	white-space: nowrap;
+	font-family: "宋体";
 }
 .type-des{
 	position: relative; 
@@ -375,13 +376,13 @@ a {
 .type-des-num{
 	margin-left: 116px;
 	background: #fff;
-	font-size: 50px;
+	font-size: 56px;
 	color: #adadad;
 	margin-top: 42px;
 	text-align: center;
 }
 .type-des-num strong{
-	font-size: 35px;
+	font-size: 47px;
 	font-weight: normal;
 }
 .index-echarts{

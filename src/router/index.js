@@ -22,6 +22,14 @@ export default new Router({
     		{
     			path: 'gateway',
     			component: resolve => require(['../components/gateway'], resolve)
+    		},
+    		{
+    			path: 'application',
+    			component: resolve => require(['../components/application'], resolve)
+    		},
+    		{
+    			path: 'map',
+    			component: resolve => require(['../components/map'], resolve)
     		}
     	]
     }

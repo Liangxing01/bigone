@@ -3,8 +3,8 @@
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
       <el-menu-item index="1"><router-link to="/user/index"><i><img src="../assets/img/nav-img1.png"/></i>概览</router-link></el-menu-item>
       <el-menu-item index="2"><router-link to="/user/gateway"><i><img src="../assets/img/nav-img2.png"/></i>我的网关</router-link></el-menu-item>
-      <el-menu-item index="3"><i><img src="../assets/img/nav-img3.png"/></i>我的应用</el-menu-item>
-      <el-menu-item index="4"><i><img src="../assets/img/nav-img4.png"/></i>地图展示</el-menu-item>
+      <el-menu-item index="3"><router-link to="/user/application"><i><img src="../assets/img/nav-img3.png"/></i>我的应用</router-link></el-menu-item>
+      <el-menu-item index="4"><router-link to="/user/map"><i><img src="../assets/img/nav-img4.png"/></i>地图展示</router-link></el-menu-item>
     <!--  <el-menu-item index="5"><i><img src="../assets/img/nav-img5.png"/></i>数据画像</el-menu-item>-->
       <el-menu-item index="6"><i><img src="../assets/img/nav-img6.png"/></i>个人中心</el-menu-item>
     </el-menu>
@@ -44,6 +44,7 @@
 	    	margin-top: 66px;
 	    	margin-bottom: 40px;
 	  }
+	  .el-menu-item, .el-submenu__title{ font-size: 18px;}
 	  .el-menu{background: #2c3749;}
 	  .el-menu-item a{display: block; color: #fff; text-decoration: none;}
 	  .el-menu-item:hover{background: #4db5ee;}
