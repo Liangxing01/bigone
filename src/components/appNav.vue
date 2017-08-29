@@ -6,7 +6,7 @@
       <el-menu-item index="3"><router-link to="/user/application"><i><img src="../assets/img/nav-img3.png"/></i>我的应用</router-link></el-menu-item>
       <el-menu-item index="4"><router-link to="/user/map"><i><img src="../assets/img/nav-img4.png"/></i>地图展示</router-link></el-menu-item>
     <!--  <el-menu-item index="5"><i><img src="../assets/img/nav-img5.png"/></i>数据画像</el-menu-item>-->
-      <el-menu-item index="6"><i><img src="../assets/img/nav-img6.png"/></i>个人中心</el-menu-item>
+      <el-menu-item index="6"><router-link to="/user/personal"><i><img src="../assets/img/nav-img6.png"/></i>个人中心</router-link></el-menu-item>
     </el-menu>
   </nav>
 </template>

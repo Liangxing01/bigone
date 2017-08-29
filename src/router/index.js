@@ -30,6 +30,10 @@ export default new Router({
     		{
     			path: 'map',
     			component: resolve => require(['../components/map'], resolve)
+    		},
+    		{
+    			path: 'personal',
+    			component: resolve => require(['../components/personal'], resolve)
     		}
     	]
     }
