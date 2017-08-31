@@ -24,9 +24,13 @@ export default new Router({
     			component: resolve => require(['../components/gateway'], resolve)
     		},
     		{
-    			path: 'application',
-    			component: resolve => require(['../components/application'], resolve)
+    			path: 'myApplication',
+    			component: resolve => require(['../components/myApplication'], resolve)
     		},
+            {
+                path: 'parking',
+                component: resolve => require(['../components/park'], resolve)
+            },
     		{
     			path: 'map',
     			component: resolve => require(['../components/map'], resolve)
@@ -34,7 +38,19 @@ export default new Router({
     		{
     			path: 'personal',
     			component: resolve => require(['../components/personal'], resolve)
-    		}
+    		},
+            {
+                path: 'cover',
+                component: resolve => require(['../components/cover'], resolve)
+            },
+            {
+                path: 'temperature',
+                component: resolve => require(['../components/temperature'], resolve)
+            },
+            {
+                path: 'smoke',
+                component: resolve => require(['../components/smoke'], resolve)
+            }
     	]
     }
   ]

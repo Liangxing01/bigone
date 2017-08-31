@@ -4,13 +4,13 @@
 		  	<el-col :span="4"><div class="grid-content bg-purple">
 		  		<el-select v-model="value" placeholder="请选择">
 				    <el-option  v-for="item in options"  :key="item.value"  :label="item.label"  :value="item.value">
-				    	<span style="float: left">{{ item.label }}</span>
-      					<span style="float: left;">{{ item.value }}</span>
+				    	<span class="el-icon-edit">{{ item.label }}</span>
+      					<span>{{ item.value }}</span>
 				    </el-option>
 			  	</el-select>
 		  	</div></el-col>
 		  	<el-col :span="6" :offset="14"><div class="grid-content border-radius">
-		  		<el-input  placeholder="搜索网关"  icon="search"  v-model="input2"  :on-icon-click="handleIconClick"></el-input>
+		  		<el-input  placeholder="搜索网关"  icon="search"></el-input>
 		  	</div></el-col>
 		</el-row>
 	</div>

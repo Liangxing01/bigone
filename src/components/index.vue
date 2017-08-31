@@ -5,7 +5,7 @@
     <app-main>
     	<router-view></router-view>
     </app-main>
-    <app-foot></app-foot>
+    <!-- <app-foot></app-foot> -->
 	</section>
 </template>
 
@@ -13,14 +13,14 @@
 	import appNav from '@/components/appNav'
 	import appHeader from '@/components/appHead'
 	import appMain from '@/components/appMain'
-	import appFoot from '@/components/appFoot'
+	// import appFoot from '@/components/appFoot'
 
 	export default{
 		components: {
 			"app-nav": appNav,
 	    "app-header": appHeader,
 	    'app-main': appMain,
-	    'app-foot': appFoot
+	    // 'app-foot': appFoot
 		}
 	}
 </script>

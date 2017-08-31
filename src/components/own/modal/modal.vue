@@ -37,12 +37,13 @@
 		left: 0;
 		right: 0;
 		background: rgba(0, 0, 0, 0.8);
+		z-index: 11111;
 	}
 	
 	.m-modal-content{
 		position: absolute;
 		left: 50%;
-		top: 100px;
+		top: 50px;
 		transform: translateX(-50%);
 		border-radius: 6px;
 		background: #fff;

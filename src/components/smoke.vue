@@ -3,7 +3,7 @@
 		<div class="apps">
 			<el-breadcrumb>
 			    <el-breadcrumb-item :to="{ path: '/' }">我的应用</el-breadcrumb-item>
-			    <el-breadcrumb-item>停车管理</el-breadcrumb-item>
+			    <el-breadcrumb-item>烟雾报警</el-breadcrumb-item>
 			</el-breadcrumb>
 			
 			<el-tabs v-model="activeName" @tab-click="handleClick" >
@@ -12,7 +12,7 @@
 					  	<el-col :span="12">
 						  	<div class="grid-content bg-purple apps-parking">
 						  		<h3>应用概览</h3>
-					  			<p class="parking-manage">停车管理<i class="el-icon-edit"></i></p>
+					  			<p class="parking-manage">烟雾报警<i class="el-icon-edit"></i></p>
 						  		<p>
 						  			<span>应用ID</span>
 						  			<span>22232342455555</span>

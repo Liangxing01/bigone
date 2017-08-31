@@ -14,15 +14,14 @@
 
 <style type="text/css" scoped>
 	.g-main-box{
-		margin-left: 240px;
-		margin-bottom: 40px;
-		height: 100%;
+		position: absolute;
+		top: 66px;
+		left: 240px;
+		right: 0;
+		bottom: 0;
 		padding: 20px;
-		background: #ecefef;
+		background: #f1f1f1;
 		overflow-y: auto;
 	}
-	.g-main-content{
-		width: 100%;
-		min-height: 900px;
-	}
+	.g-main-content{ width: 100%;}
 </style>

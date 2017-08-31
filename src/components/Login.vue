@@ -11,6 +11,12 @@
 					<i>P</i>
 					<input v-model="password" placeholder="密码 Password" type="password" class="loginItem"></input>
 				</div>
+				<div class="chooseType">
+					<template>
+					  <el-radio class="radio" v-model="radio" label="1">普通用户</el-radio>
+					  <el-radio class="radio" v-model="radio" label="2">管理员</el-radio>
+					</template>
+				</div>
 				<button type="info" @click="login">登陆Login</button>
 			</div>
 		</div>
@@ -25,26 +31,12 @@ import axios from '@/fetch/api';
 			return{
 				username: '',
 				password: '',
+				radio: '1'
 			}
 		},
 		methods: {
 			login: function(){
-//				var _this = this;
-//					axios.get('/static/data/user.json').then(function(response){
-//						var hasUser = '';
-//						response.data.map(function(data){
-//							if(data.username == _this.username && data.password == _this.password){
-//								hasUser = 'login';
-//							}
-//						})
-//						if(hasUser == 'login'){
-//							alert('登陆成功！')
-//						}else{
-//							alert('登陆失败！')
-//						}
-//					}).catch(function(err){
-//						console.log(err);
-//					})
+				console.log(this.radio);
 				location.href='#/user/index'
 			}
 		}
@@ -68,7 +60,7 @@ import axios from '@/fetch/api';
 		bottom: 0;
 		top: 50%;
 		transform: translateY(-50%);
-		padding: 40px;
+		padding: 20px;
 		margin:  auto;
 		width: 420px;
 		border: 1px solid transparent;
@@ -79,29 +71,19 @@ import axios from '@/fetch/api';
 	}
 
 	.g-login-box h4{
-		margin: 20px 0;
+		margin: 10px 0;
 		color: #fff;
 		font-size: 24px;
+		text-align: center;
 	}
 	.g-login-box h4 img{ vertical-align: middle; margin-right: 10px;}
 	.g-login-content .loginItem{ margin: 15px 0; }
-	input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
-	color: #fff; 
-	} 
-	input:-moz-placeholder, textarea:-moz-placeholder { 
-	color: #fff; 
-	} 
-	input::-moz-placeholder, textarea::-moz-placeholder { 
-	color: #fff; 
-	} 
-	input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
-	color: #fff; 
-	} 
 	.g-login-content input{
 		display: inline-block;
 		width: 100%;
 		height: auto;
-		margin-bottom: 25px;
+		color: #fff;
+		margin-bottom: 20px;
 		color: #fff;
 		border: none;
 		background: #8fb9e3;
@@ -128,7 +110,7 @@ import axios from '@/fetch/api';
 		border-radius: 3px;
 	}
 	.g-login-content button{ 
-		margin-top: 40px;
+		margin-top: 20px;
 		padding: 8px 35px; 
 		background: #1b69b6 ;
 		color: #fff;
@@ -141,4 +123,7 @@ import axios from '@/fetch/api';
 		border:none;
 		border-radius: 3px;
 	}
+	.chooseType{ text-align: center; color: #fff;}
+	.chooseType .el-radio__input.is-checked .el-radio__inner{ background: #fff; }
+	.chooseType .el-radio__inner::after{ background: #20a0ff}
 </style>
