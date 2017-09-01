@@ -52,6 +52,44 @@ export default new Router({
                 component: resolve => require(['../components/smoke'], resolve)
             }
     	]
+    },
+    {
+        path: '/adminLogin', component: resolve => require(['../components/admin/adminLogin'], resolve)
+    },
+    {
+        path: '/admin', component: resolve => require(['../components/admin/admin'], resolve),
+        beforeEnter: (from, to, next) =>{
+            if(!localStorage.getItem('username')){
+                next('/adminLogin');
+            }
+            next();
+        },
+        children:[
+            {
+                path: 'tem', component: resolve => require(['../components/admin/tem'], resolve)
+            },
+            {
+                path: 'jingai', component: resolve => require(['../components/admin/jingai'], resolve)
+            },
+            {
+                path: 'smoke', component: resolve => require(['../components/admin/smoke'], resolve)
+            },
+            {
+                path: 'dici', component: resolve => require(['../components/admin/dici'], resolve)
+            },
+            {   
+                    path: 'send', component: resolve => require(['../components/admin/send'], resolve)
+            },
+            {
+                path: 'raw', component: resolve => require(['../components/admin/raw'], resolve)
+            },
+            {
+                path: 'weather', component: resolve => require(['../components/admin/weather'], resolve)
+            },
+            {
+                path: 'lorascan', component: resolve => require(['../components/admin/lorascan'], resolve)
+            }
+        ]
     }
   ]
 })

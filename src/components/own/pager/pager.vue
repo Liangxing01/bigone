@@ -1,6 +1,6 @@
 <template>
 <div>
-	<table class="table table-bordered table-striped pager-table">
+	<table class="pager-table table">
 		<thead>
 			<tr>
 				<th v-for="(item, index) in m_column" :key="index" :class="{'pager-sort':item.sortable,'pager-sort-asc':item.sort==1,'pager-sort-desc':item.sort==0}" @click="changeSort(index)">{{item.title}}</th>
@@ -10,8 +10,8 @@
 			<slot :data="data"></slot>
 		</tbody>
 	</table>
-	<div class="row">
-		<div class="col-lg-6">
+	<div class="pagerFoot">
+		<div class="pager-count">
 			每页显示<select class="select-num" v-model.number="m_count">
 				<option value="10">10</option>
 				<option value="15">15</option>
@@ -23,7 +23,7 @@
 			</select>
 			条
 		</div>
-		<div class="col-lg-6">
+		<div class="pager-jump">
 			<div style="float: right; margin:20px 0">
 				到
 				<input class="select-jump" type="number" v-model.number.lazy="jumpTo" />
@@ -38,6 +38,8 @@
 
 <script>
 import pagination from './pagination.vue'
+import axios from '@/fetch/api.js'
+
 export default{
 	props:{
 		column:Array,
@@ -89,12 +91,27 @@ export default{
 	},
 	methods:{
 		loadPage:function(){
+			var _this = this;
 			var _param={page:this.page,count:this.m_count};
 			if (this.sortName!=''){
 				_param['sortName']=this.sortName;
 				_param['sortType']=this.sortType;
 			}
-			$.web(this.url,$.extend(_param,this.param),function(d){
+			axios({
+				methods: 'get',
+				url: _this.url,
+				params: Object.assign(_param, this.param)
+			}).then(function(res){
+				var obj = res.data;
+				if(_this.fun != null){
+					obj.data = obj.data.map(_this.fun);
+					_this.data.splice(0);
+					for (var x of obj.data){
+						_this.data.push(x);
+					}
+				}
+			})
+			/*$.web(this.url,$.extend(_param,this.param),function(d){
 				this.total=d.total;
 				if (this.fun!=null)
 					d.data=d.data.map(this.fun);
@@ -102,7 +119,7 @@ export default{
 				for (var x of d.data){
 					this.data.push(x);
 				}
-			}.bind(this),'get');
+			}.bind(this),'get');*/
 		},
 		jump:function(page){
 			if (page<=0||page>this.totalPage){
@@ -153,7 +170,19 @@ export default{
 }
 </script>
 
-<style>
+<style scoped>
+.table{
+	width: 100%;
+	font-size: 14px;
+	line-height: 36px;
+	background: #fff;
+	border-collapse:collapse;
+}
+table, th, td{ border: 1px solid #ccc; }
+.pagerFoot{ line-height: 36px;font-size: 14px; }
+.pagerFoot:after{ display: table; content: '';clear: both; }
+.pager-count{ float: left; }
+.pager-jump{ float: right; }
 .select-num{
 	margin: 20px 0;
     padding: 6px 12px;
